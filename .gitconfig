@@ -7,7 +7,7 @@
 [alias]
 	st = status
 	co = checkout
-	lg = log --decorate --oneline --format=short
+	lg = log --decorate --oneline
 
 [http]
 	postBuffer = 524288000
