@@ -1,21 +1,21 @@
 [diff]
-    tool = vimdiff
+	tool = vimdiff
 
 [color]
-    ui = auto
+	ui = auto
 
 [alias]
-    st = status
-    co = checkout
-	lg = log --decorate --oneline
+	st = status
+	co = checkout
+	lg = log --decorate --oneline --format=short
 
 [http]
-    postBuffer = 524288000
+	postBuffer = 524288000
 
 [core]
-    quotepath = false
-    editor = /usr/bin/vim
-    longpaths = true
+	quotepath = false
+	editor = /usr/bin/vim
+	longpaths = true
 [push]
 	default = simple
 [log]
