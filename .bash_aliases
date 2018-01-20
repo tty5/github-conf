@@ -12,7 +12,9 @@ export PROMPT_COMMAND="history -a"
 shopt -s histappend
 
 export EDITOR=vim
-alias pst='ps axo user,pid,ppid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args --forest'
+alias pse='ps axo user,pid,spid,ppid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
+alias pst='pse --forest'
+
 alias qemu-system-x86_64-lite='qemu-system-x86_64 -machine q35,accel=kvm,kernel_irqchip,nvdimm,nosmm,nosmbus,nosata,nopit,nofw'
 alias r='cd ..'
 alias rm='rm -f'
