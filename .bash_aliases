@@ -9,12 +9,11 @@ stty -ixon
 
 HISTSIZE=9000
 export PROMPT_COMMAND="history -a"
+shopt -s histappend
 
 export EDITOR=vim
-
 alias qemu-system-x86_64-lite='qemu-system-x86_64 -machine q35,accel=kvm,kernel_irqchip,nvdimm,nosmm,nosmbus,nosata,nopit,nofw'
 alias r='cd ..'
-alias v='vi'
 alias rm='rm -f'
 alias l=ls
 alias vi=vim
