@@ -20,3 +20,7 @@
 	default = simple
 [log]
 	decorate = true
+[sendemail]
+	suppresscc = all
+	signedoffbycc = false
+	suppressfrom = true
