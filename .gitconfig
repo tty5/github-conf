@@ -8,7 +8,7 @@
 	st = status
 	co = checkout
 	lg = log --decorate --oneline
-	reflog = log -g --format=short
+	rl = log -g --format=short
 
 [http]
 	postBuffer = 524288000
