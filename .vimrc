@@ -18,16 +18,15 @@ set nu
 set hlsearch
 set nowrapscan
 
-filetype indent off
-set noautoindent
-set nocindent
-set nosmartindent
+filetype indent on
+set cindent
 
 set tabstop=8
 set shiftwidth=8
 set noexpandtab
 set nocompatible
-"set backspace=2
+
+autocmd BufRead *.py set expandtab | set tabstop=4 | set shiftwidth=4
 
 hi TabLineFill ctermfg=gray ctermbg=DarkGreen
 hi TabLine ctermfg=black ctermbg=gray
