@@ -7,7 +7,7 @@
 [alias]
 	st = status
 	co = checkout
-	lg = log --decorate --oneline
+	lg = log --decorate --oneline -n 15
 	rl = log -g --format=short
 
 [http]
