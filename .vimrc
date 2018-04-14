@@ -28,6 +28,7 @@ set nocompatible
 
 autocmd BufRead *.py set expandtab | set tabstop=4 | set shiftwidth=4
 autocmd BufRead *.sh set expandtab | set tabstop=4 | set shiftwidth=4
+autocmd BufRead *.html set expandtab | set tabstop=4 | set shiftwidth=4
 
 hi TabLineFill ctermfg=gray ctermbg=DarkGreen
 hi TabLine ctermfg=black ctermbg=gray
