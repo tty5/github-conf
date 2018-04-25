@@ -16,6 +16,7 @@ alias pse='ps axo user,pid,spid,ppid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time
 alias pst='pse --forest'
 
 alias qemu-system-x86_64-lite='qemu-system-x86_64 -machine q35,accel=kvm,kernel_irqchip,nvdimm,nosmm,nosmbus,nosata,nopit,nofw'
+alias qemu-system-x86_64-kvm='/usr/bin/qemu-system-x86_64 -enable-kvm'
 alias r='cd ..'
 alias rm='rm -f'
 alias l=ls
