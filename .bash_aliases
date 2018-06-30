@@ -25,4 +25,15 @@ alias l=ls
 alias vi=vim
 alias mergekvmconf='sh scripts/kconfig/merge_config.sh -m .config ~/github-conf/kvm_guest.conf'
 
-PS1='\n\e[1;37m[\e[m\e[1;32m\u\e[m\e[1;33m@\e[m\e[1;35m\H\e[m \e[4m`pwd`\e[m\e[1;37m]\e[m\e[1;36m\e[m \e[1;35m[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]\e[m \n\$'
+oc='\e[m'
+wh='\e[1;37m'
+gr='\e[1;32m'
+yl='\e[1;33m'
+rd='\e[1;35m'
+
+PS1="\n${wh}[${gr}\u${yl}@${rd}\H"
+PS1="$PS1 "${wh}"`pwd`]"
+PS1="$PS1 "${gr}'[shlvl $SHLVL]'
+PS1="$PS1 "${rd}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]\n\$'
+
+export PATH=/root/code/go/bin:$PATH

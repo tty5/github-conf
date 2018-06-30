@@ -26,6 +26,7 @@ set shiftwidth=8
 set noexpandtab
 set nocompatible
 
+autocmd BufRead *.json set expandtab | set tabstop=4 | set shiftwidth=4
 autocmd BufRead *.py set expandtab | set tabstop=4 | set shiftwidth=4
 autocmd BufRead *.sh set expandtab | set tabstop=4 | set shiftwidth=4
 autocmd BufRead *.html set expandtab | set tabstop=4 | set shiftwidth=4
