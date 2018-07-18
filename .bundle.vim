@@ -10,6 +10,7 @@ call vundle#rc()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
+Plugin 'roxma/vim-paste-easy'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'ap/vim-buftabline'
 Bundle 'taglist.vim'
