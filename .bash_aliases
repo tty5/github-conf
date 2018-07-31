@@ -11,7 +11,7 @@ HISTSIZE=9000
 export PROMPT_COMMAND="history -a"
 shopt -s histappend
 
-alias sshuttle--no-latency-control='sshuttle --no-latency-control'
+alias sshuttle--no-latency-control='sshuttle --no-latency-control -x 11.0.0.0/8 -x 10.0.0.0/8 -x 30.0.0.0/8'
 
 export EDITOR=vim
 alias pse='ps axo user,pid,spid,ppid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
