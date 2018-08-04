@@ -29,18 +29,6 @@
       ]
     }
   },
-  "inboundDetour": [
-  {
-      "protocol": "dokodemo-door",
-      "port": 11,
-      "settings": {
-          "address": "127.0.0.1",
-          "port": 22,
-          "network": "tcp",
-          "timeout": 0
-      }
-  }
-  ],
   "policy": {
     "levels": {
       "0": {"uplinkOnly": 0}
