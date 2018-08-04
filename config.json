@@ -4,7 +4,7 @@
   },
   "inbound": {
     "port": 1080,
-    "listen": "127.0.0.1",
+    "listen": "0.0.0.0",
     "protocol": "socks",
     "settings": {
       "auth": "noauth",
@@ -14,22 +14,33 @@
   },
   "outbound": {
     "protocol": "vmess",
-     "settings": {      
+    "settings": {
       "vnext": [
         {
-          "address": "serveraddr.com",
-          "port": 10086,
-          "users":[
-          {
-              "id": "29816ce7-7579-4b6d-a713-d9be216916e5",
+          "address": "x",
+          "port": 443,
+          "users": [
+            {
+              "id": "x",
               "alterId": 64
             }
           ]
         }
       ]
-    },
-    "tag": "direct"
+    }
   },
+  "inboundDetour": [
+  {
+      "protocol": "dokodemo-door",
+      "port": 11,
+      "settings": {
+          "address": "127.0.0.1",
+          "port": 22,
+          "network": "tcp",
+          "timeout": 0
+      }
+  }
+  ],
   "policy": {
     "levels": {
       "0": {"uplinkOnly": 0}
