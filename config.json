@@ -29,6 +29,18 @@
       ]
     }
   },
+  "inboundDetour": [
+  {
+      "protocol": "dokodemo-door",  // 一个额外的入口协议
+      "port": 1081,  // 本地端口
+      "settings": {
+          "address": "127.0.0.1",  // 远程机器的 IP
+          "port": 22,          // 远程机器
+          "network": "tcp",      // 网络协议，支持"tcp"、"udp"和"tcp,udp"
+          "timeout": 0           // 传输超时（秒），0 表示不检测超时
+      }
+  }
+  ],
   "policy": {
     "levels": {
       "0": {"uplinkOnly": 0}
