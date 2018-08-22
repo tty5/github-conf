@@ -13,6 +13,7 @@ shopt -s histappend
 
 alias sshuttle--no-latency-control='sshuttle  --auto-nets --dns --no-latency-control -x 11.0.0.0/8 -x 10.0.0.0/8 -x 30.0.0.0/8'
 
+alias sh=bash
 export EDITOR=vim
 alias pse='ps axo user,pid,spid,ppid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
 alias pst='pse --forest'
@@ -37,3 +38,5 @@ PS1="$PS1 "${gr}'[shlvl $SHLVL]'
 PS1="$PS1 "${rd}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]\n\$'
 
 export PATH=/root/code/go/bin:$PATH
+export PATH=/root/go/bin:$PATH
+export GOPATH=/root/go
