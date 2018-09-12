@@ -1,0 +1,31 @@
+{
+  "log" : {
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log",
+    "loglevel": "warning"
+  },
+  "inbound": {
+    "port": 443,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "xxx",
+          "level": 1,
+          "alterId": 64
+        }
+      ]
+    }
+  },
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {}
+  },
+  "outboundDetour": [
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ]
+}
