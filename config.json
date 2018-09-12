@@ -39,16 +39,6 @@
           "network": "tcp",      // "tcp","udp" or "tcp,udp"
           "timeout": 0           // timeout，0 indicate no timeout
       }
-  },
-  {
-      "protocol": "dokodemo-door",  // addtional in protocal
-      "port": 999,  // local port
-      "settings": {
-          "address": "127.0.0.1",  // remote target IP
-          "port": 999,          // remote target port
-          "network": "tcp",      // "tcp","udp" or "tcp,udp"
-          "timeout": 0           // timeout，0 indicate no timeout
-      }
   }
   ],
   "policy": {
