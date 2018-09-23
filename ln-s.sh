@@ -1,6 +1,6 @@
 ln -sf github-conf/.bash_aliases
 ln -sf github-conf/.bundle.vim
-ln -sf github-conf/.gitconfig
+#ln -sf github-conf/.gitconfig
 ln -sf github-conf/.vimrc
 ln -sf github-conf/.gdbinit
 ln -sf github-conf/.tmux.conf
