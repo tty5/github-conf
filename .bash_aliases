@@ -40,3 +40,4 @@ PS1="$PS1 "${rd}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]\n\$'
 export PATH=/root/code/go/bin:$PATH
 export PATH=/root/go/bin:$PATH
 export GOPATH=/root/go
+export PATH=$(echo $PATH | sed 's/:/\n/g' | sort | uniq | tr -s '\n' ':' | sed 's/:$//g')
