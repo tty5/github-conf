@@ -34,10 +34,11 @@ rd='\e[1;35m'
 
 PS1="\n${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
+PS1="$PS1 "${rd}'[`pgrep sshuttle > /dev/null && echo sshuttle`]'
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
 PS1="$PS1 "${rd}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'${oc}'\n\$'
 
-export PATH=/root/code/go/bin:$PATH
+export PATH=/root/go/compile/go/bin/:$PATH
 export PATH=/root/go/bin:$PATH
 export GOPATH=/root/go
 export PATH=$(echo $PATH | sed 's/:/\n/g' | awk '!x[$0]++' | tr -s '\n' ':' | sed 's/:$//g')
