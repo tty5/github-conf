@@ -27,6 +27,13 @@
           ]
         }
       ]
+    },
+	"streamSettings": {
+      "network": "mkcp",
+      "kcpSettings": {
+        "mtu": 1350,
+        "tti": 20
+      }
     }
   },
   "inboundDetour": [
@@ -40,10 +47,5 @@
           "timeout": 0           // timeout，0 indicate no timeout
       }
   }
-  ],
-  "policy": {
-    "levels": {
-      "0": {"uplinkOnly": 0}
-    }
-  }
+  ]
 }
