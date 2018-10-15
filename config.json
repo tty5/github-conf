@@ -28,7 +28,7 @@
         }
       ]
     },
-	"streamSettings": {
+    "streamSettings": {
       "network": "mkcp",
       "kcpSettings": {
         "mtu": 1350,
