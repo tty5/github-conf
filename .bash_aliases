@@ -11,6 +11,8 @@ HISTSIZE=9000
 export PROMPT_COMMAND="history -a"
 shopt -s histappend
 
+source <(crictl completion bash)
+
 alias sshuttle--no-latency-control='sshuttle  --auto-nets --dns --no-latency-control -x 11.0.0.0/8 -x 10.0.0.0/8 -x 30.0.0.0/8'
 
 alias sh=bash

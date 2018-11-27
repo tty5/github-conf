@@ -16,5 +16,6 @@ RUN systemctl stop firewalld.service; \
     echo -e "111111\n111111\nn\n" | vncpasswd
 
 RUN yum clean all
+RUN sed  -e "/^ExecStartPre.*/aExecStartPre=/bin/sh -c 'rm -fr /root/.vnc/*.pid /tmp/.X11-unix/*; /usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'"   -e '/^ExecStartPre.*/d' -i /etc/systemd/system/vncserver@\:1.service
 
 CMD ["/usr/sbin/init"]
