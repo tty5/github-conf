@@ -12,8 +12,7 @@ export PROMPT_COMMAND="history -a"
 shopt -s histappend
 
 source <(crictl completion bash)
-
-alias sshuttle--no-latency-control='sshuttle  --auto-nets --dns --no-latency-control -x 11.0.0.0/8 -x 10.0.0.0/8 -x 30.0.0.0/8'
+alias sshuttle-all='sshuttle  -D --auto-nets --no-latency-control --pidfile /tmp/sshuttle.pid -x 11.0.0.0/8 -x 10.0.0.0/8 -x 30.0.0.0/8 0/0'
 
 alias sh=bash
 export EDITOR=vim
