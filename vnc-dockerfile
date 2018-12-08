@@ -4,8 +4,10 @@ MAINTAINER "Your Name" <you@example.com>
 #docker run --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 5901:5901 -d di
 #docker build --rm --no-cache -t di .
 
-RUN yum -y install cabextract bind-utils traceroute net-tools bash-completion tigervnc-server vim git wget epel-release python2-pip
 RUN yum -y group install GNOME Desktop
+RUN yum -y install epel-release
+RUN yum -y install cabextract bind-utils traceroute net-tools bash-completion tigervnc-server vim git wget python2-pip
+run yum -y install firefox *chinese-fonts*
 
 # install config vnc
 RUN systemctl stop firewalld.service; \
