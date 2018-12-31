@@ -39,7 +39,7 @@ PS1="$PS1 "${rd}'[`pgrep sshuttle > /dev/null && echo sshuttle`]'
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
 PS1="$PS1 "${rd}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'${oc}'\n\$'
 
-export PATH=/root/go/compile/go/bin/:$PATH
-export PATH=/root/go/bin:$PATH
-export GOPATH=/root/go
+export PATH=/root/gopath/compile/go/bin/:$PATH
+export PATH=/root/gopath/bin:$PATH
+export GOPATH=/root/gopath
 export PATH=$(echo $PATH | sed 's/:/\n/g' | awk '!x[$0]++' | tr -s '\n' ':' | sed 's/:$//g')
