@@ -9,6 +9,10 @@ RUN yum -y install epel-release
 RUN yum -y install cabextract bind-utils traceroute net-tools bash-completion tigervnc-server vim git wget python2-pip
 run yum -y install firefox *chinese-fonts*
 
+run pip install pip -U -i https://pypi.tuna.tsinghua.edu.cn/simple && \
+    pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
+    pip install sshuttle
+
 # install config vnc
 RUN systemctl stop firewalld.service; \
     systemctl disable firewalld.service; \
