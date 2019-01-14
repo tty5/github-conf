@@ -2,7 +2,7 @@ FROM centos/systemd
 
 MAINTAINER "Your Name" <you@example.com>
 #docker run --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 5901:5901 -d di
-#docker build --rm --no-cache -t di .
+#docker build -t vnc vncserver
 
 RUN yum -y group install GNOME Desktop
 RUN yum -y install epel-release
