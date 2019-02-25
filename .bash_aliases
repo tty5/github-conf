@@ -26,7 +26,7 @@ alias rm='rm -f'
 alias l=ls
 alias vi=vim
 alias mergekvmconf='sh scripts/kconfig/merge_config.sh -m .config ~/github-conf/kvm_guest.conf'
-
+alias numfmti='numfmt --to=iec'
 oc='\e[m'
 wh='\e[1;37m'
 gr='\e[1;32m'
