@@ -24,6 +24,7 @@ alias qemu-system-x86_64-kvm='/usr/bin/qemu-system-x86_64 -enable-kvm'
 alias r='cd ..'
 alias rm='rm -f'
 alias l=ls
+alias gosrc='cd /root/gopath/src/'
 alias vi=vim
 alias mergekvmconf='sh scripts/kconfig/merge_config.sh -m .config ~/github-conf/kvm_guest.conf'
 alias numfmti='numfmt --to=iec'
