@@ -12,6 +12,7 @@ export PROMPT_COMMAND="history -a"
 shopt -s histappend
 
 source <(crictl completion bash)
+source <(kubectl completion bash)
 alias sshuttle-all='sshuttle  -D --no-latency-control --pidfile /tmp/sshuttle.pid -x 11.0.0.0/8 -x 10.0.0.0/8 -x 30.0.0.0/8 -x 172.16.0.0/12 -x 192.168.0.0/16 0/0'
 alias psshuttle-all='proxychains4 -q sshuttle  -D --no-latency-control --pidfile /tmp/sshuttle.pid -x 11.0.0.0/8 -x 10.0.0.0/8 -x 30.0.0.0/8 -x 172.16.0.0/12 -x 192.168.0.0/16 0/0'
 
