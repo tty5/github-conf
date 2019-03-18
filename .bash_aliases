@@ -30,6 +30,9 @@ alias gosrc='cd /root/gopath/src/'
 alias vi=vim
 alias mergekvmconf='sh scripts/kconfig/merge_config.sh -m .config ~/github-conf/kvm_guest.conf'
 alias numfmti='numfmt --to=iec'
+alias rdon='iptables -t nat -A OUTPUT -p tcp -j REDSOCKS'
+alias rdoff='iptables -t nat --delete OUTPUT -p tcp -j REDSOCKS'
+
 oc='\e[m'
 wh='\e[1;37m'
 gr='\e[1;32m'
