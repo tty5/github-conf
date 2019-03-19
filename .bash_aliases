@@ -30,8 +30,11 @@ alias gosrc='cd /root/gopath/src/'
 alias vi=vim
 alias mergekvmconf='sh scripts/kconfig/merge_config.sh -m .config ~/github-conf/kvm_guest.conf'
 alias numfmti='numfmt --to=iec'
-alias rson='iptables -t nat -A OUTPUT -p tcp -j REDSOCKS'
-alias rsoff='iptables -t nat --delete OUTPUT -p tcp -j REDSOCKS'
+alias rs-on='iptables -t nat -A OUTPUT -p tcp -j REDSOCKS'
+alias rs-off='iptables -t nat --delete OUTPUT -p tcp -j REDSOCKS'
+
+alias rs-pon='iptables -t nat -A PREROUTING -p tcp -j REDSOCKS'
+alias rs-poff='iptables -t nat --delete PREROUTING -p tcp -j REDSOCKS'
 
 oc='\e[m'
 wh='\e[1;37m'
@@ -41,7 +44,8 @@ rd='\e[1;35m'
 
 PS1="\n${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
-PS1="$PS1 "${rd}'[`iptables -t nat -L OUTPUT |grep REDSOCKS > /dev/null && echo rson`]'
+PS1="$PS1 "${rd}'[`iptables -t nat -L OUTPUT |grep REDSOCKS > /dev/null && echo rs-on`]'
+PS1="$PS1 "${rd}'[`iptables -t nat -L PREROUTING |grep REDSOCKS > /dev/null && echo rs-pon`]'
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
 PS1="$PS1 "${rd}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'${oc}'\n\$'
 
