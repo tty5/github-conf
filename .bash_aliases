@@ -35,6 +35,7 @@ alias rs-off='iptables -t nat --delete OUTPUT -p tcp -j REDSOCKS'
 
 alias rs-pon='iptables -t nat -A PREROUTING -p tcp -j REDSOCKS'
 alias rs-poff='iptables -t nat --delete PREROUTING -p tcp -j REDSOCKS'
+alias rs='iptables -t nat -L OUTPUT |grep REDSOCKS > /dev/null ; if [ $? == 0 ]; then rs-poff; rs-off ;else rs-on; rs-pon; fi'
 
 oc='\e[m'
 wh='\e[1;37m'
