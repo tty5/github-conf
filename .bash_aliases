@@ -20,7 +20,7 @@ alias sh=bash
 export EDITOR=vim
 alias pse='ps axo user,pid,spid,ppid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
 alias pst='pse --forest'
-alias tmfile='grep -A 1 'base64 ' ~/tmux-histroy/a  |tail -1 | sed 's/[ \t]*$//' |base64 -d'
+alias tmfile="grep -A 1 'base64 ' ~/tmux-histroy/a  |tail -1 | sed 's/[ \t]*$//' |base64 -d"
 
 alias qemu-system-x86_64-lite='qemu-system-x86_64 -machine q35,accel=kvm,kernel_irqchip,nvdimm,nosmm,nosmbus,nosata,nopit,nofw'
 alias qemu-system-x86_64-kvm='/usr/bin/qemu-system-x86_64 -enable-kvm'
