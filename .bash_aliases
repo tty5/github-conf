@@ -58,3 +58,4 @@ export PATH=/root/gopath/compile/go/bin/:$PATH
 export PATH=/root/gopath/bin:$PATH
 export GOPATH=/root/gopath
 export PATH=$(echo $PATH | sed 's/:/\n/g' | awk '!x[$0]++' | tr -s '\n' ':' | sed 's/:$//g')
+
