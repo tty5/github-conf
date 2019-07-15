@@ -49,6 +49,7 @@ rd='\e[1;35m'
 
 PS1="\n${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
+PS1="$PS1 "${rd}'[`iptables -t nat -L OUTPUT |grep sshuttle > /dev/null && echo sshuttle`]'
 PS1="$PS1 "${rd}'[`iptables -t nat -L OUTPUT |grep REDSOCKS > /dev/null && echo rs-on`]'
 PS1="$PS1 "${rd}'[`iptables -t nat -L PREROUTING |grep REDSOCKS > /dev/null && echo rs-pon`]'
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
