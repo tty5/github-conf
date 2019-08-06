@@ -1,0 +1,46 @@
+diff --git a/core/definitions.mk b/core/definitions.mk
+index 7834baa..8acd558 100644
+--- a/core/definitions.mk
++++ b/core/definitions.mk
+@@ -911,7 +911,23 @@ $(hide) $(PROTOC) \
+        --cpp_out=$(PRIVATE_PROTO_CC_OUTPUT_DIR) $<
+ endef
+
++OPTIMIZE_OUT_DIRS := external/iproute2/ip \
++                     external/icu4c/i18n \
++                     external/alljoyn/alljoyn_core \
++                     system/netd \
++                     vendor/qcom/proprietary/cne-noship/common/core \
++                     vendor/qcom/proprietary/mm-core
+
++OPTIMIZE_OUT_FILES := $(shell find $(OPTIMIZE_OUT_DIRS) -name *.c)
++OPTIMIZE_OUT_FILES += $(shell find $(OPTIMIZE_OUT_DIRS) -name *.cpp)
++OPTIMIZE_OUT_FILES += $(shell find $(OPTIMIZE_OUT_DIRS) -name *.cc)
++
++OPTIMIZE_OUT_FILES := $(abspath $(OPTIMIZE_OUT_FILES))
++
++define OPTIMIZE_FLAGS
++$(if $(findstring $(abspath $(<)), $(OPTIMIZE_OUT_FILES)),\
++        -ggdb3, -O0 -ggdb3)
++endef
+ ###########################################################
+ ## Commands for running gcc to compile a C++ file
+ ###########################################################
+@@ -937,7 +953,7 @@ $(hide) $(PRIVATE_CXX) \
+        $(PRIVATE_CFLAGS) \
+        $(PRIVATE_CPPFLAGS) \
+        $(PRIVATE_DEBUG_CFLAGS) \
+-       -MD -MF $(patsubst %.o,%.d,$@) -o $@ $<
++       -MD -MF $(patsubst %.o,%.d,$@) $(OPTIMIZE_FLAGS) -o $@ $<
+ $(transform-d-to-p)
+ endef
+
+@@ -963,7 +979,7 @@ $(hide) $(PRIVATE_CC) \
+            $(PRIVATE_ARM_CFLAGS) \
+         ) \
+         $(1) \
+-       -MD -MF $(patsubst %.o,%.d,$@) -o $@ $<
++       -MD -MF $(patsubst %.o,%.d,$@) $(OPTIMIZE_FLAGS) -o $@ $<
+ endef
+
+ define transform-c-to-o-no-deps
