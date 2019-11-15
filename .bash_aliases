@@ -46,7 +46,7 @@ wh='\e[1;37m'
 gr='\e[1;32m'
 yl='\e[1;33m'
 rd='\e[1;35m'
-eth0=$(hostname -i |cut -d . -f 2-)
+eth0=$(hostname -i)
 
 PS1="\n${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
