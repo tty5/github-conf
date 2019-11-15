@@ -46,7 +46,7 @@ wh='\e[1;37m'
 gr='\e[1;32m'
 yl='\e[1;33m'
 rd='\e[1;35m'
-ip=$(hostname -i |cut -d . -f 2-)
+eth0=$(hostname -i |cut -d . -f 2-)
 
 PS1="\n${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
@@ -55,7 +55,7 @@ PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep REDSOCKS > /dev/null && ec
 PS1="$PS1 "${rd}'[`iptables -n -t nat -L PREROUTING |grep REDSOCKS > /dev/null && echo rs-pon`]'
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
 PS1="$PS1 "${yl}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'
-PS1="$PS1 "${rd}'[ip $ip ]'
+PS1="$PS1 "${rd}'[eth0 $eth0 ]'
 
 PS1="$PS1"${oc}'\n\$'
 
