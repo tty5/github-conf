@@ -594,6 +594,7 @@
 ||ynzs.cn
 ||youdao.com
 ||youku.com
+||irs01.com
 ||youth.cn
 ||yunpian.com
 ||yunshipei.com
