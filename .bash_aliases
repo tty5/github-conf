@@ -46,7 +46,7 @@ wh='\e[1;37m'
 gr='\e[1;32m'
 yl='\e[1;33m'
 rd='\e[1;35m'
-ip=$(hostname -i)
+ip=$(hostname -i |cut -d . -f 2-)
 
 PS1="\n${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
