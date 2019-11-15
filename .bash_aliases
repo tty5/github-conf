@@ -46,6 +46,7 @@ wh='\e[1;37m'
 gr='\e[1;32m'
 yl='\e[1;33m'
 rd='\e[1;35m'
+ip=$(hostname -i)
 
 PS1="\n${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
@@ -53,7 +54,10 @@ PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep sshuttle > /dev/null && ec
 PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep REDSOCKS > /dev/null && echo rs-on`]'
 PS1="$PS1 "${rd}'[`iptables -n -t nat -L PREROUTING |grep REDSOCKS > /dev/null && echo rs-pon`]'
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
-PS1="$PS1 "${rd}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'${oc}'\n\$'
+PS1="$PS1 "${yl}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'
+PS1="$PS1 "${rd}'[ip $ip ]'
+
+PS1="$PS1"${oc}'\n\$'
 
 export PATH=/root/gopath/compile/go/bin/:$PATH
 export PATH=/root/gopath/bin:$PATH
