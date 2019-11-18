@@ -19,6 +19,7 @@ alias psshuttle-all='proxychains4 -q sshuttle --no-latency-control --pidfile /tm
 # 显示光标
 alias cursor-on='echo -e "\033[?25h"' 
 
+unalias cp
 alias sh=bash
 export EDITOR=vim
 alias pse='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
