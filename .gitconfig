@@ -25,3 +25,6 @@
 	suppresscc = all
 	signedoffbycc = false
 	suppressfrom = true
+[user]
+	email = you@example.com
+	name = Your Name
