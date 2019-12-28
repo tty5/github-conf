@@ -2,7 +2,7 @@ import re
 import sys
 import json
 d={}
-a = re.sub('\+[\d]*', '', sys.stdin.read().replace('\n','').replace(' ', '')).split('@')
+a = re.sub('\+[\d]*', '', sys.stdin.read().replace('\n','')).split('@')
 a.pop(0)
 for item in a:
     key, count = item.split(':')
