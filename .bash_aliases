@@ -48,7 +48,8 @@ alias rs-poff='iptables -t nat --delete PREROUTING -p tcp -j REDSOCKS'
 alias rs='iptables -t nat -L OUTPUT |grep REDSOCKS > /dev/null ; if [ $? == 0 ]; then rs-poff; rs-off ;else rs-on; rs-pon; fi'
 
 bpf-execsnoop() {
-    bpftrace -e 'tracepoint:syscalls:sys_enter_execve,tracepoint:syscalls:sys_enter_execveat{printf("%s %-10u %s ", probe, pid, comm);join(args->argv);}'
+    bpftrace -e 'tracepoint:syscalls:sys_enter_execve,tracepoint:syscalls:sys_enter_execveat
+    {printf("%s %-10u %s ", probe, pid, comm);join(args->argv);}'
 }
 bpf-opensnoop() {
     bpftrace -e 'tracepoint:syscalls:sys_enter_open,tracepoint:syscalls:sys_enter_openat
