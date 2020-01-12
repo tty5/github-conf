@@ -50,6 +50,10 @@ alias rs='iptables -t nat -L OUTPUT |grep REDSOCKS > /dev/null ; if [ $? == 0 ];
 bpf-execsnoop() {
     bpftrace -e 'tracepoint:syscalls:sys_enter_execve,tracepoint:syscalls:sys_enter_execveat{printf("%s %-10u %s ", probe, pid, comm);join(args->argv);}'
 }
+bpf-execsnoop() {
+    bpftrace -e 'tracepoint:syscalls:sys_enter_open,tracepoint:syscalls:sys_enter_openat
+    {printf("%s pid %d comm %s open filename %s\n", probe, pid, comm, str(args->filename))}'
+}
 
 oc='\e[m'
 wh='\e[1;37m'
