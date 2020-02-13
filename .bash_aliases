@@ -30,6 +30,7 @@ alias cursor-on='echo -e "\033[?25h"'
 unalias cp
 alias sh=bash
 export EDITOR=vim
+alias dd-byte='dd oflag=seek_bytes iflag=skip_bytes,count_bytes status=none'
 alias pse='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
 alias pst='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args --forest'
 alias tmfile="grep -A 1 'base64 ' ~/tmux-histroy/rfile  |tail -1 | sed 's/[ \t]*$//' |base64 -d"
