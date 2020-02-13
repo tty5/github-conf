@@ -1,51 +1,9 @@
-{
-  "log": {
-    "loglevel": "warning"
-  },
-  "inbound": {
-    "port": 1080,
-    "listen": "0.0.0.0",
-    "protocol": "socks",
-    "settings": {
-      "auth": "noauth",
-      "udp": false,
-      "ip": "127.0.0.1"
-    }
-  },
-  "outbound": {
-    "protocol": "vmess",
-    "settings": {
-      "vnext": [
-        {
-          "address": "x",
-          "port": 443,
-          "users": [
-            {
-              "id": "x",
-              "alterId": 64
-            }
-          ]
-        }
-      ]
-    },
-    "streamSettings": {
-      "network": "mkcp",
-      "kcpSettings": {
-        "mtu": 1350,
-        "tti": 20
-      }
-    }
-  },
-  "inboundDetour": [
-  {
-      "protocol": "dokodemo-door",  // addtional in protocal
-      "port": 1081,  // local port
-      "settings": {
-          "address": "127.0.0.1",  // remote target IP
-          "port": 22,          // remote target port
-          "network": "tcp",      // "tcp","udp" or "tcp,udp"
-          "timeout": 0           // timeout，0 indicate no timeout
-      }
-  }
-  ]
+- {
+  name: sec,
+  type: vmess,
+  server: x,
+  port: 443,
+  uuid: x,
+  alterId: 2,
+  cipher: auto,
 }
