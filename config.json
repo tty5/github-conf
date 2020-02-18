@@ -1,9 +1,0 @@
-- {
-  name: sec,
-  type: vmess,
-  server: x,
-  port: 443,
-  uuid: x,
-  alterId: 2,
-  cipher: auto,
-}

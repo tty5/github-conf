@@ -1,0 +1,8 @@
+Proxy:
+  - name: sec
+    type: vmess
+    server: xxx
+    port: 443
+    uuid: xxx
+    alterId: 2
+    cipher: auto
