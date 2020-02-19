@@ -4,5 +4,5 @@ Proxy:
     server: xxx
     port: 443
     uuid: xxx
-    alterId: 2
+    alterId: 0
     cipher: auto

@@ -5,8 +5,7 @@
     "settings": {
       "clients": [
         {
-          "id": "x",
-          "alterId": 2
+          "id": "x"
         }
       ],
       "streamSettings": {
