@@ -25,11 +25,12 @@ grep1() {
 }
 
 # 显示光标
-alias cursor-on='echo -e "\033[?25h"' 
+alias cursor-on='echo -e "\033[?25h"'
 
 unalias cp
 alias sh=bash
 export EDITOR=vim
+alias pparam="bash -c 'for i; do echo -- \"$i\"; done' bash"
 alias dd-byte='dd oflag=seek_bytes iflag=skip_bytes,count_bytes status=none'
 alias pse='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
 alias pst='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args --forest'
