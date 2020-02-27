@@ -25,7 +25,7 @@ grep1() {
 }
 
 pparam() {
-    echo 'for i; do echo -- "$i"; done' | bash /dev/stdin "$@"
+    bash -c 'for i; do echo -- "$i"; done' bash "$@"
 }
 
 # 显示光标
