@@ -70,7 +70,8 @@ wh='\e[1;37m'
 gr='\e[1;32m'
 yl='\e[1;33m'
 rd='\e[1;35m'
-eth0=$(hostname -I |cut -d ' '  -f 1)
+mid=$(hostname -I |cut -d ' '  -f 1)
+if [[ -f /m-id ]]; then mid=$(cat /m-id); fi;
 
 PS1="\n${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
@@ -79,7 +80,7 @@ PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep REDSOCKS > /dev/null && ec
 PS1="$PS1 "${rd}'[`iptables -n -t nat -L PREROUTING |grep REDSOCKS > /dev/null && echo rs-pon`]'
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
 PS1="$PS1 "${yl}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'
-PS1="$PS1 "${rd}'[eth0 $eth0 ]'
+PS1="$PS1 "${rd}'[m-id $mid ]'
 
 PS1="$PS1"${oc}'\n\$'
 
