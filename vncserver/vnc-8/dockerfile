@@ -19,9 +19,10 @@ CMD ["/usr/sbin/init"]
 MAINTAINER "Your Name" <you@example.com>
 
 
-RUN yum -y group install workstation 'Server with GUI' --skip-broken
+RUN yum -y group install workstation 'Server with GUI' 'Development Tools' --skip-broken
 RUN yum -y install epel-release; \
     yum -y install bind-utils traceroute net-tools bash-completion tigervnc-server vim git wget python3-pip firefox xsetroot xterm
+    yum -y install flex bison openssl-devel
 
 run yum install -y python2-devel python2 gcc gcc-c++
 
