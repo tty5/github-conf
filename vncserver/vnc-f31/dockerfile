@@ -24,7 +24,7 @@ RUN yum -y install bind-utils traceroute net-tools bash-completion tigervnc-serv
 
 run yum -y group install 'KDE Plasma Workspaces'
 
-run yum install -y python2-devel python2 gcc gcc-c++ flex bison
+run yum install -y python2-devel python2 gcc gcc-c++ flex bison openssl-devel
 
 run yum install tigervnc-server tigervnc-server-module -y; echo -e "111111\n111111\nn\n" | vncpasswd
 
