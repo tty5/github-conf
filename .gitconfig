@@ -1,18 +1,16 @@
 [diff]
 	tool = vimdiff
-
 [color]
 	ui = auto
-
+[pull]
+    rebase = true
 [alias]
 	st = status
 	co = checkout
 	lg = log --decorate --oneline -n 15
 	rl = log -g --format=short
-
 [http]
 	postBuffer = 524288000
-
 [core]
 	quotepath = false
 	editor = /usr/bin/vim
