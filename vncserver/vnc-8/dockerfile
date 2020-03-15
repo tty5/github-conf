@@ -1,6 +1,8 @@
 #docker run --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 5901:5901 -d vnc8
 #docker build -t vnc8 .
 
+# https://en.secnews.gr/204573/centos-8-kde-plasma-install/
+
 FROM centos:8
 ENV container docker
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
@@ -18,11 +20,10 @@ CMD ["/usr/sbin/init"]
 
 MAINTAINER "Your Name" <you@example.com>
 
-
 RUN yum -y group install workstation 'Server with GUI' 'Development Tools' --skip-broken
 RUN yum -y install epel-release; \
-    yum -y install bind-utils traceroute net-tools bash-completion tigervnc-server vim git wget python3-pip firefox xsetroot xterm
-    yum -y install flex bison openssl-devel
+    yum -y install bind-utils traceroute net-tools bash-completion tigervnc-server; \
+    yum -y install flex bison openssl-devel vim git wget python3-pip firefox xsetroot xterm
 
 run yum install -y python2-devel python2 gcc gcc-c++
 
@@ -32,4 +33,13 @@ run systemctl disable firewalld; \
     systemctl unmask systemd-logind.service; \
     sed -e 's|<USER>|root|' -i /usr/lib/systemd/system/vncserver@.service; \
     systemctl enable vncserver@:1
+
+# run rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm; \
+#     dnf config-manager --enable epel-playground; \
+#     dnf config-manager --enable PowerTools; \
+#     dnf -y group install "KDE Plasma Workspaces"; \
+#     dnf -y group install kde-desktop kde-apps kde-software-Development kf5-software-Development --skip-broken
+#
+# run dnf -y install switchdesk
+
 
