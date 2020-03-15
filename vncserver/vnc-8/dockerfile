@@ -20,7 +20,10 @@ CMD ["/usr/sbin/init"]
 
 MAINTAINER "Your Name" <you@example.com>
 
-RUN yum -y group install workstation 'Server with GUI' 'Development Tools' --skip-broken
+run yum -y group install 'Server with GUI' --skip-broken
+run yum -y group install workstation
+run yum -y group install 'Development Tools'
+
 RUN yum -y install epel-release; \
     yum -y install bind-utils traceroute net-tools bash-completion tigervnc-server; \
     yum -y install flex bison openssl-devel vim git wget python3-pip firefox xsetroot xterm
@@ -34,12 +37,10 @@ run systemctl disable firewalld; \
     sed -e 's|<USER>|root|' -i /usr/lib/systemd/system/vncserver@.service; \
     systemctl enable vncserver@:1
 
-# run rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm; \
-#     dnf config-manager --enable epel-playground; \
-#     dnf config-manager --enable PowerTools; \
-#     dnf -y group install "KDE Plasma Workspaces"; \
-#     dnf -y group install kde-desktop kde-apps kde-software-Development kf5-software-Development --skip-broken
-#
-# run dnf -y install switchdesk
+run rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm; \
+    dnf config-manager --enable epel-playground; \
+    dnf config-manager --enable PowerTools; \
+    dnf -y group install "KDE Plasma Workspaces"; \
+    dnf -y group install kde-desktop kde-apps kde-software-Development kf5-software-Development --skip-broken
 
-
+run dnf -y install switchdesk
