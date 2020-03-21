@@ -21,7 +21,7 @@ CMD ["/usr/sbin/init"]
 MAINTAINER "Your Name" <you@example.com>
 
 run yum -y group install 'Server with GUI' --skip-broken
-run yum -y group install workstation
+run yum -y group install workstation --skip-broken
 run yum -y group install 'Development Tools'
 
 RUN yum -y install epel-release; \
