@@ -76,14 +76,14 @@ rd='\e[1;35m'
 mid=$(hostname -I |cut -d ' '  -f 1)
 if [[ -f /m-id ]]; then mid=$(cat /m-id); fi;
 
-PS1="\n${wh}[${gr}\u${yl}@${rd}\H"
+PS1="\n$mid-${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
 PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep sshuttle > /dev/null && echo sshuttle`]'
 PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep REDSOCKS > /dev/null && echo rs-on`]'
 PS1="$PS1 "${rd}'[`iptables -n -t nat -L PREROUTING |grep REDSOCKS > /dev/null && echo rs-pon`]'
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
 PS1="$PS1 "${yl}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'
-PS1="$PS1 "${rd}'[m-id $mid ]'
+# PS1="$PS1 "${rd}'[m-id $mid ]'
 
 PS1="$PS1"${oc}'\n\$'
 
