@@ -35,6 +35,9 @@ unalias cp
 alias sh=bash
 export EDITOR=vim
 
+alias display-1920='xrandr -s "1920x1017_60.00"'
+alias display-2560='xrandr -s "2560x1346_60.00"'
+
 alias ll='ls -l --color=auto'
 alias dd-byte='dd oflag=seek_bytes iflag=skip_bytes,count_bytes status=none'
 alias pse='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
