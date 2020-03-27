@@ -55,9 +55,6 @@ alias gosrc='cd /root/gopath/src/'
 alias vi=vim
 alias mergekvmconf='sh scripts/kconfig/merge_config.sh -m .config ~/github-conf/kvm_guest.conf'
 
-# https://github.com/torvalds/linux/blob/master/Documentation/kbuild/makefiles.rst
-alias kern-make='make CFLAGS_base.o=-O1'
-
 alias numfmti='numfmt --to=iec'
 alias rs-on='iptables -t nat -A OUTPUT -p tcp -j REDSOCKS'
 alias rs-off='iptables -t nat --delete OUTPUT -p tcp -j REDSOCKS'
