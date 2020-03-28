@@ -56,12 +56,12 @@ alias vi=vim
 alias mergekvmconf='sh scripts/kconfig/merge_config.sh -m .config ~/github-conf/kvm_guest.conf'
 
 alias numfmti='numfmt --to=iec'
-alias rs-on='iptables -t nat -A OUTPUT -p tcp -j REDSOCKS'
-alias rs-off='iptables -t nat --delete OUTPUT -p tcp -j REDSOCKS'
+alias rs-on='nft add chain ip redsocks red-output { type nat hook output priority 0\; }; nft add rule ip redsocks red-output ip protocol tcp counter jump red-local'
+alias rs-off='nft delete chain ip redsocks red-output'
 
-alias rs-pon='iptables -t nat -A PREROUTING -p tcp -j REDSOCKS'
-alias rs-poff='iptables -t nat --delete PREROUTING -p tcp -j REDSOCKS'
-alias rs='iptables -t nat -L OUTPUT |grep REDSOCKS > /dev/null ; if [ $? == 0 ]; then rs-poff; rs-off ;else rs-on; rs-pon; fi'
+alias rs-pon='nft add chain ip redsocks red-prerouting { type nat hook prerouting priority 0\; }; nft add rule ip redsocks red-prerouting ip protocol tcp counter jump red-local'
+alias rs-poff='nft delete chain ip redsocks red-prerouting'
+alias rs='nft list chain ip redsocks red-output > /dev/null 2>&1 ; if [ $? == 0 ]; then rs-poff; rs-off ;else rs-on; rs-pon; fi'
 
 bpf-execsnoop() {
     bpftrace -e 'tracepoint:syscalls:sys_enter_execve,tracepoint:syscalls:sys_enter_execveat
@@ -82,9 +82,9 @@ if [[ -f /m-id ]]; then mid=$(cat /m-id); fi;
 
 PS1="\n${yl}$mid ${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
-PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep sshuttle > /dev/null && echo sshuttle`]'
-PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep REDSOCKS > /dev/null && echo rs-on`]'
-PS1="$PS1 "${rd}'[`iptables -n -t nat -L PREROUTING |grep REDSOCKS > /dev/null && echo rs-pon`]'
+# PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep sshuttle > /dev/null && echo sshuttle`]'
+PS1="$PS1 "${rd}'[`nft list chain ip redsocks red-output > /dev/null 2>&1 && echo rs-on`]'
+PS1="$PS1 "${rd}'[`nft list chain ip redsocks red-prerouting > /dev/null 2>&1 && echo rs-pon`]'
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
 PS1="$PS1 "${yl}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'
 # PS1="$PS1 "${rd}'[m-id $mid ]'
