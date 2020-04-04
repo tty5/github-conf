@@ -63,15 +63,6 @@ alias rs-pon='nft add chain ip redsocks red-prerouting { type nat hook preroutin
 alias rs-poff='nft delete chain ip redsocks red-prerouting'
 alias rs='nft list chain ip redsocks red-output > /dev/null 2>&1 ; if [ $? == 0 ]; then rs-poff; rs-off ;else rs-on; rs-pon; fi'
 
-bpf-execsnoop() {
-    bpftrace -e 'tracepoint:syscalls:sys_enter_execve,tracepoint:syscalls:sys_enter_execveat
-    {printf("%s %-10u %s ", probe, pid, comm);join(args->argv);}'
-}
-bpf-opensnoop() {
-    bpftrace -e 'tracepoint:syscalls:sys_enter_open,tracepoint:syscalls:sys_enter_openat
-    {printf("%s pid %d comm %s open filename %s\n", probe, pid, comm, str(args->filename))}'
-}
-
 oc='\e[m'
 wh='\e[1;37m'
 gr='\e[1;32m'
