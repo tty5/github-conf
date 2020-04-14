@@ -82,8 +82,8 @@ PS1="$PS1 "${yl}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'
 
 PS1="$PS1"${oc}'\n\$'
 
-export PATH=/root/gopath/compile/go/bin/:$PATH
-export PATH=/root/gopath/bin:$PATH
-export GOPATH=/root/gopath
+export PATH=/sd/gopath/compile/go/bin/:$PATH
+export PATH=/sd/gopath/bin:$PATH
+export GOPATH=/sd/gopath
 export PATH=$(echo $PATH | sed 's/:/\n/g' | awk '!x[$0]++' | tr -s '\n' ':' | sed 's/:$//g')
 
