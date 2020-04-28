@@ -47,7 +47,7 @@ set statusline=%F%m%r,\ %Y,\ [%{&fileformat}],\ [%{getcwd()}],\ row=%l,\ col=%c%
 
 noremap <C-t> :Tlist<CR>
 noremap <C-b> :bprevious<CR>
-noremap <C-n> :bnext<CR>
+noremap <C-n> :set invnumber<CR>
 noremap <C-q> :Bclose<CR>
 noremap <C-s> :w<CR>
 
