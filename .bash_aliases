@@ -79,7 +79,7 @@ gr='\e[1;32m'
 yl='\e[1;33m'
 rd='\e[1;35m'
 mid=$(hostname -I |cut -d ' '  -f 1)
-if [[ -f /m-id ]]; then mid=$(cat /m-id); fi;
+if [[ -f /mid ]]; then mid=$(cat /mid); fi;
 
 PS1="\n${yl}$mid ${wh}[${gr}\u${yl}@${rd}\H"
 PS1="$PS1 "${wh}'`pwd`]'
@@ -88,7 +88,7 @@ PS1="$PS1 "${rd}'[`nft list chain ip redsocks red-output > /dev/null 2>&1 && ech
 PS1="$PS1 "${rd}'[`nft list chain ip redsocks red-prerouting > /dev/null 2>&1 && echo rs-pon`]'
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
 PS1="$PS1 "${yl}'[jobs \j `jobs | sed "s|^[^ ]* *[^ ]* *||g" |tr "\n" " "`]'
-# PS1="$PS1 "${rd}'[m-id $mid ]'
+# PS1="$PS1 "${rd}'[mid $mid ]'
 
 PS1="$PS1"${oc}'\n\$'
 
