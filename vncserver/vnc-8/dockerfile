@@ -1,5 +1,5 @@
 #docker build -t registry.cn-shanghai.aliyuncs.com/tty/vnc-8 .
-#docker run --privileged -v /root:/sd -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 5901:5901 -d registry.cn-shanghai.aliyuncs.com/tty/vnc-8
+#docker run --privileged --name vnc-8 -v /root:/sd -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 5901:5901 -d registry.cn-shanghai.aliyuncs.com/tty/vnc-8
 
 # https://en.secnews.gr/204573/centos-8-kde-plasma-install/
 
