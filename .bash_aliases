@@ -28,6 +28,10 @@ pparam() {
     bash -c 'for i; do echo -- "$i"; done' bash "$@"
 }
 
+param-echo() {
+    printf 'Argument is __%s__\n' "$@"
+}
+
 vim-trim() {
     sed -i 's/[ ]*$//' "$1" && vim "$1"
 }
