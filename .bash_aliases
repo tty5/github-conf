@@ -32,6 +32,10 @@ param-echo() {
     printf 'Argument is __%s__\n' "$@"
 }
 
+rsone() {
+    eval rs-on; eval "$@"; eval rs-off;
+}
+
 vim-trim() {
     sed -i 's/[ ]*$//' "$1" && vim "$1"
 }
