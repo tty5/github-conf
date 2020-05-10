@@ -1,0 +1,19 @@
+# env setup
+
+wget https://github.com/boypt/vmess2json/raw/master/vmess2json.py
+
+python3 vmess2json.py   --subscribe 'subs' -o 1.json
+
+docker run -d -v /root/1.json:/etc/v2ray/config.json --name v2ray --network host --restart always tty/v2r
+
+docker run  --privileged --name redsocks-nf -e ip=x -d --network host --restart always tty/redsocks:nf
+
+
+# centos install proxychains
+
+rpm -Uvh https://mirrors.aliyun.com/fedora/releases/27/Everything/x86_64/os/Packages/p/proxychains-ng-4.11-4.fc27.x86_64.rpm
+
+rpm -Uvh https://mirrors.aliyun.com/fedora/releases/30/Everything/x86_64/os/Packages/p/proxychains-ng-4.13-3.fc30.x86_64.rpm
+
+sed 's/^socks.*/socks5 x.x.x.x 1080/' -i /etc/proxychains.conf
+
