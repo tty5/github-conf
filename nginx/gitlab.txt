@@ -1,0 +1,11 @@
+# use root to access port 80
+
+docker run -d \
+  -p 443:443 -p 80:80 \
+  --name gitlab \
+  --restart always \
+  --volume gitlab/config:/etc/gitlab \
+  --volume gitlab/logs:/var/log/gitlab \
+  --volume gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce:latest
+

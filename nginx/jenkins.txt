@@ -1,0 +1,13 @@
+
+docker run --name jenkins \
+          --user root \
+          -p 82:8080  \
+          -v /nv/jenkins_home:/var/jenkins_home \
+          -d jenkins/jenkins:lts
+
+
+# run in host
+cat  << eof | ssh host-ip bash
+pwd; docker ps; echo $BUILD_NUMBER
+
+eof
