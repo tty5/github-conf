@@ -46,13 +46,13 @@ set laststatus=2
 set statusline=%F%m%r,\ %Y,\ [%{&fileformat}],\ [%{getcwd()}],\ row=%l,\ col=%c%V,\ %p%%,\ [%{(&fenc==\"\")?&enc:&fenc}],\ ASCII=\%b,\ HEX=\%B
 
 noremap <C-t> :Tlist<CR>
-noremap <C-b> :bprevious<CR>
+"noremap <C-b> :bprevious<CR>
 noremap <C-n> :set invnumber<CR>
 noremap <C-q> :Bclose<CR>
 noremap <C-s> :w<CR>
 
 inoremap <C-t> <ESC>:Tlist<CR>
-inoremap <C-b> <ESC>:bnext<CR>
+"inoremap <C-b> <ESC>:bnext<CR>
 inoremap <C-q> <ESC>:Bclose<CR>
 inoremap <C-s> <ESC>:w<CR>
 

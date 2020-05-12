@@ -33,7 +33,7 @@ param-echo() {
 }
 
 rsone() {
-    eval rs-on; eval "$@"; eval rs-off;
+    eval rs; eval "$@"; eval rs;
 }
 
 vim-trim() {
