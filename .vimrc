@@ -5,8 +5,8 @@ syntax on
 colorscheme ron
 set backspace=indent,eol,start
 
-set cursorline
-set cursorcolumn
+"set cursorline
+"set cursorcolumn
 
 hi CursorLine ctermfg=yellow ctermbg=green cterm=bold
 hi CursorColumn ctermfg=yellow ctermbg=green cterm=bold
