@@ -33,11 +33,34 @@ param-echo() {
 }
 
 rsone() {
-    eval rs; eval "$@"; eval rs;
+    rs-on; rs-pon; eval "$@"; rs-off; rs-poff;
 }
 
 vim-trim() {
     sed -i 's/[ ]*$//' "$1" && vim "$1"
+}
+
+rs(){
+    nft list chain ip redsocks red-output > /dev/null 2>&1 ;
+    if [ $? == 0 ]; then rs-poff; rs-off ;else rs-on; rs-pon; fi
+}
+
+rs-on() {
+    nft add chain ip redsocks red-output { type nat hook output priority 0\; };
+    nft add rule ip redsocks red-output ip protocol tcp counter jump red-local;
+}
+
+rs-off() {
+    nft delete chain ip redsocks red-output
+}
+
+rs-pon() {
+    nft add chain ip redsocks red-prerouting { type nat hook prerouting priority 0\; } ;
+    nft add rule ip redsocks red-prerouting ip protocol tcp counter jump red-local;
+}
+
+rs-poff() {
+    nft delete chain ip redsocks red-prerouting
 }
 
 # 显示光标
@@ -74,12 +97,6 @@ alias vi=vim
 alias mergekvmconf='sh scripts/kconfig/merge_config.sh -m .config ~/github-conf/kvm_guest.conf'
 
 alias numfmti='numfmt --to=iec'
-alias rs-on='nft add chain ip redsocks red-output { type nat hook output priority 0\; }; nft add rule ip redsocks red-output ip protocol tcp counter jump red-local'
-alias rs-off='nft delete chain ip redsocks red-output'
-
-alias rs-pon='nft add chain ip redsocks red-prerouting { type nat hook prerouting priority 0\; }; nft add rule ip redsocks red-prerouting ip protocol tcp counter jump red-local'
-alias rs-poff='nft delete chain ip redsocks red-prerouting'
-alias rs='nft list chain ip redsocks red-output > /dev/null 2>&1 ; if [ $? == 0 ]; then rs-poff; rs-off ;else rs-on; rs-pon; fi'
 
 oc='\e[m'
 wh='\e[1;37m'
