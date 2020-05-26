@@ -1,0 +1,23 @@
+{
+  "inbound": {
+    "port": 1080,
+    "listen": "0.0.0.0",
+    "protocol": "socks"
+  },
+  "outbound": {
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [
+        {
+          "address": "x",
+          "port": 443,
+          "users": [
+            {
+              "id": "x"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
