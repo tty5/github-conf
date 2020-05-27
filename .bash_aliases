@@ -32,7 +32,7 @@ param-echo() {
     printf 'Argument is __%s__\n' "$@"
 }
 
-rsone() {
+rs() {
     rs-on; rs-pon; eval "$@"; rs-off; rs-poff;
 }
 
@@ -40,7 +40,7 @@ vim-trim() {
     sed -i 's/[ ]*$//' "$1" && vim "$1"
 }
 
-rs(){
+rs-trg(){
     nft list chain ip redsocks red-output > /dev/null 2>&1 ;
     if [ $? == 0 ]; then rs-poff; rs-off ;else rs-on; rs-pon; fi
 }
