@@ -33,7 +33,11 @@ param-echo() {
 }
 
 rs() {
-    rs-on; rs-pon; eval "$@"; rs-off; rs-poff;
+   if [[ "$#" == "0" ]]; then
+     rs-trg;
+   else
+     rs-on; rs-pon; eval "$@"; rs-off; rs-poff;
+   fi
 }
 
 vim-trim() {
