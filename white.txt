@@ -94,6 +94,7 @@
 ||alicdn.com
 ||alimama.com
 ||alipay.com
+||alipay.net
 ||alipayobjects.com
 ||aliyun.com
 ||amap.com
