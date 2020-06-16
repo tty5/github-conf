@@ -70,7 +70,8 @@ rs-poff() {
 # 显示光标
 alias cursor-on='echo -e "\033[?25h"'
 
-unalias cp
+alias cp >/dev/null 2>&1; if [[ "$?" == "0" ]]; then unalias cp; fi
+
 alias sh=bash
 export EDITOR=vim
 
