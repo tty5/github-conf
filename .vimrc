@@ -1,5 +1,5 @@
 "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-source ~/.bundle.vim
+"source ~/.bundle.vim
 
 syntax on
 colorscheme ron
