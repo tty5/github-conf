@@ -1,6 +1,6 @@
 # env setup
 
-wget https://github.com/boypt/vmess2json/raw/master/vmess2json.py
+wget tty5/vmess2json/vmess2json.py
 
 python3 vmess2json.py   --subscribe 'subs' -o 1.json
 

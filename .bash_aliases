@@ -111,7 +111,7 @@ rd='\e[1;35m'
 mid=$(hostname -I |cut -d ' '  -f 1)
 if [[ -f /mid ]]; then mid=$(cat /mid); fi;
 
-PS1="\n${yl}$mid ${wh}[${gr}\u${yl}@${rd}\H"
+PS1="\n${yl}$mid ${wh}[${gr}\u${yl}@${rd}\h"
 PS1="$PS1 "${wh}'`pwd`]'
 # PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep sshuttle > /dev/null && echo sshuttle`]'
 PS1="$PS1 "${rd}'[`nft list chain ip redsocks red-output > /dev/null 2>&1 && echo rs-on`]'
