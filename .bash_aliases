@@ -108,8 +108,8 @@ wh='\e[1;37m'
 gr='\e[1;32m'
 yl='\e[1;33m'
 rd='\e[1;35m'
-mid=$(hostname -I |cut -d ' '  -f 1)
-if [[ -f /mid ]]; then mid=$(cat /mid); fi;
+
+if [[ -f /mid ]]; then mid=$(cat /mid); else mid=$(hostname -I |cut -d ' '  -f 1); fi;
 
 PS1="\n${yl}$mid ${wh}[${gr}\u${yl}@${rd}\h"
 PS1="$PS1 "${wh}'`pwd`]'
