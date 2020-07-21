@@ -13,7 +13,7 @@
 	postBuffer = 524288000
 [core]
 	quotepath = false
-	editor = /usr/bin/vim
+	editor = vim
 	longpaths = true
 	autocrlf = input
 	eol = lf
