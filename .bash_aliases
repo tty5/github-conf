@@ -5,7 +5,7 @@
 #head -3 .bash_aliases |cut -c 2- >> ~/.bashrc
 #sed '1p;/a.out/!d'
 
-stty -ixon
+tty -s && stty -ixon
 
 HISTSIZE=9000
 export PROMPT_COMMAND="history -a"
