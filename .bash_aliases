@@ -5,6 +5,10 @@
 #head -3 .bash_aliases |cut -c 2- >> ~/.bashrc
 #sed '1p;/a.out/!d'
 
+#PS1=${PS1/\\n\\$/}
+#PS1="$PS1 "${yl}'[mid]'
+#PS1="$PS1$oc\n\$"
+
 tty -s && stty -ixon
 
 HISTSIZE=9000
