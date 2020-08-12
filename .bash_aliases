@@ -28,13 +28,15 @@ grep1() {
     read -e line; echo "$line"; grep "$@"
 }
 
-pparam() {
-    bash -c 'for i; do echo -- "$i"; done' bash "$@"
-}
-
 param-echo() {
     printf 'Argument is __%s__\n' "$@"
 }
+
+socat-tty() {
+    socat stdin,raw,echo=0,escape=0x1d "$@"
+}
+
+function faketty { script -qefc "$(printf "'%s' " "$@")"; }
 
 rs() {
    if [[ "$#" == "0" ]]; then
