@@ -73,18 +73,23 @@ rs-poff() {
     nft delete chain ip redsocks red-prerouting
 }
 
+export EDITOR=vim
+
 # 显示光标
 alias cursor-on='echo -e "\033[?25h"'
 
 alias cp >/dev/null 2>&1; if [[ "$?" == "0" ]]; then unalias cp; fi
+alias mv >/dev/null 2>&1; if [[ "$?" == "0" ]]; then unalias mv; fi
+alias rm >/dev/null 2>&1; if [[ "$?" == "0" ]]; then unalias rm; fi
+alias ls >/dev/null 2>&1; if [[ "$?" == "0" ]]; then unalias ls; fi
 
-alias sh=bash
-export EDITOR=vim
+alias ls='ls --color=auto'
+alias ll='ls -l'
 
-alias display-1920='xrandr -s "1920x1017_60.00"'
-alias display-2560='xrandr -s "2560x1346_60.00"'
+alias r='cd ..'
+alias rm='rm -f'
+alias l=ls
 
-alias ll='ls -l --color=auto'
 alias dd-byte='dd oflag=seek_bytes iflag=skip_bytes,count_bytes status=none'
 alias pse='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
 alias pst='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args --forest'
@@ -94,14 +99,13 @@ alias tmfile="grep -A 1 'base64 ' ~/tmux-histroy/rfile  |tail -1 | sed 's/[ \t]*
 alias conf-update='bash -c "cd; cd github-conf; git st; git fetch; git co origin/master"'
 alias curl-g='curl gstatic.com'
 
+alias display-1920='xrandr -s "1920x1017_60.00"'
+alias display-2560='xrandr -s "2560x1346_60.00"'
 
 alias qemu-system-x86_64-lite='qemu-system-x86_64 -machine q35,accel=kvm,kernel_irqchip,nvdimm,nosmm,nosmbus,nosata,nopit,nofw'
 alias qemu-system-x86_64-kvm='/usr/bin/qemu-system-x86_64 -enable-kvm'
-alias r='cd ..'
-alias rm='rm -f'
-alias l=ls
-alias gosrc='cd /sd/gopath/src'
 
+alias gosrc='cd /sd/gopath/src'
 alias go-code='cd /sd/code'
 
 alias vi=vim
