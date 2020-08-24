@@ -75,6 +75,10 @@ rs-poff() {
 
 export EDITOR=vim
 
+journalctl-u() {
+    journalctl _SYSTEMD_INVOCATION_ID=$(systemctl show --value -p InvocationID "$1")
+}
+
 # 显示光标
 alias cursor-on='echo -e "\033[?25h"'
 
