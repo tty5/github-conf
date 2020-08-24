@@ -11,6 +11,8 @@ set backspace=indent,eol,start
 hi CursorLine ctermfg=yellow ctermbg=green cterm=bold
 hi CursorColumn ctermfg=yellow ctermbg=green cterm=bold
 
+set belloff=all
+
 set noswapfile
 set nobackup
 set incsearch
