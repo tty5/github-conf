@@ -127,7 +127,11 @@ if [[ -f /mid ]]; then mid=$(cat /mid); else mid=$(hostname -I |cut -d ' '  -f 1
 
 PS1="\n${yl}$mid ${wh}[${gr}\u${yl}@${rd}\h"
 PS1="$PS1 "${wh}'`pwd`]'
-# PS1="$PS1 "${rd}'[`iptables -n -t nat -L OUTPUT |grep sshuttle > /dev/null && echo sshuttle`]'
+
+shtret=0; command -v sshuttle > /dev/null && shtret=1
+if [[ $shtret == 1 ]]; then
+    PS1="$PS1 "${rd}'[`nft list tables |grep sshuttle > /dev/null && echo sshuttle`]'
+fi
 
 nftret=0; command -v nft > /dev/null && nftret=1
 if [[ $nftret == 1 ]]; then
