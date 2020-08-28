@@ -21,8 +21,7 @@ shopt -s histappend
 # kubectl completion bash > /usr/share/bash-completion/completions/kubectl
 # crictl completion bash > /usr/share/bash-completion/completions/crictl
 
-alias sshuttle-all='sshuttle  -l 0.0.0.0 --no-latency-control --pidfile /tmp/sshuttle.pid -x 11.0.0.0/8 -x 10.0.0.0/8 -x 30.0.0.0/8 -x 172.16.0.0/12 -x 192.168.0.0/16 0/0'
-alias psshuttle-all='proxychains4 -q sshuttle --no-latency-control --pidfile /tmp/sshuttle.pid -x 11.0.0.0/8 -x 10.0.0.0/8 -x 30.0.0.0/8 -x 172.16.0.0/12 -x 192.168.0.0/16 0/0'
+alias sshuttle-all='sshuttle -l 0.0.0.0 --method nft --no-latency-control --pidfile /tmp/sshuttle.pid -x 127.0.0.0/8 -x 10.0.0.0/8 -x 11.0.0.0/8 -x 30.0.0.0/8 -x 172.16.0.0/12 -x 192.168.0.0/16 -x 100.64.0.0/10 -x 169.254.0.0/16 -x 224.0.0.0/4 -x 240.0.0.0/4 0/0'
 
 grep1() {
     read -e line; echo "$line"; grep "$@"
