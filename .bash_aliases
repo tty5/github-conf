@@ -15,6 +15,8 @@ HISTSIZE=9000
 export PROMPT_COMMAND="history -a"
 shopt -s histappend
 
+HOME=/sd
+
 # source <(crictl completion bash)
 # source <(kubectl completion bash)
 
