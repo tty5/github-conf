@@ -15,7 +15,7 @@ HISTSIZE=9000
 export PROMPT_COMMAND="history -a"
 shopt -s histappend
 
-if [[ x"$OS" != x"Windows_NT" ]]; then HOME=/sd; fi;
+if [[ x"$OS" != x"Windows_NT" ]]; then alias sd='cd /sd'; fi;
 
 # source <(crictl completion bash)
 # source <(kubectl completion bash)
