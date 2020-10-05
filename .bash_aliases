@@ -97,6 +97,9 @@ alias l=ls
 alias watch='watch -n1'
 alias t='tmux a -t one'
 
+alias openssl-enc='openssl enc -rc4 -e -pass pass: '
+alias openssl-dec='openssl enc -rc4 -d -pass pass: '
+
 alias dd-byte='dd oflag=seek_bytes iflag=skip_bytes,count_bytes status=none'
 alias pse='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
 alias pst='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args --forest'
