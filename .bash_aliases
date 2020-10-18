@@ -53,26 +53,23 @@ vim-trim() {
 
 rs-trg(){
     nft list chain ip redsocks red-output > /dev/null 2>&1 ;
-    if [ $? == 0 ]; then rs-poff; rs-off ;else rs-on; rs-pon; fi
+    if [ $? == 0 ]; then rs-off; else rs-on; fi
 }
 
 rs-on() {
     nft add chain ip redsocks red-output { type nat hook output priority 0\; };
     nft add rule ip redsocks red-output ip protocol tcp counter jump red-local;
-}
 
-rs-off() {
-    nft delete chain ip redsocks red-output
-}
-
-rs-pon() {
     nft add chain ip redsocks red-prerouting { type nat hook prerouting priority 0\; } ;
     nft add rule ip redsocks red-prerouting ip protocol tcp counter jump red-local;
 }
 
-rs-poff() {
+rs-off() {
+    nft delete chain ip redsocks red-output
+
     nft delete chain ip redsocks red-prerouting
 }
+
 
 export EDITOR=vim
 
@@ -148,7 +145,6 @@ fi
 nftret=0; command -v nft > /dev/null && nftret=1
 if [[ $nftret == 1 ]]; then
     PS1="$PS1 "${rd}'[`nft list chain ip redsocks red-output > /dev/null 2>&1 && echo rs-on`]'
-    PS1="$PS1 "${rd}'[`nft list chain ip redsocks red-prerouting > /dev/null 2>&1 && echo rs-pon`]'
 fi
 
 PS1="$PS1 "${gr}'[shlvl $SHLVL]'
