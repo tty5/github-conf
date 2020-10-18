@@ -137,13 +137,14 @@ if [[ -f /mid ]]; then mid=$(cat /mid); else mid=$(hostname -I |cut -d ' '  -f 1
 PS1="\n${yl}$mid ${wh}[${gr}\u${yl}@${rd}\h"
 PS1="$PS1 "${wh}'`pwd`]'
 
-shtret=0; command -v sshuttle > /dev/null && shtret=1
+shtret=0; command -v sshuttle > /dev/null 2>&1 && shtret=1
 if [[ $shtret == 1 ]]; then
-    PS1="$PS1 "${rd}'[`nft list tables |grep sshuttle > /dev/null && echo sshuttle`]'
+    PS1="$PS1 "${rd}'[`iptables -nt nat -L OUTPUT |grep sshuttle > /dev/null && echo ipt-sht`]'
 fi
 
-nftret=0; command -v nft > /dev/null && nftret=1
+nftret=0; command -v nft > /dev/null 2>&1 && nftret=1
 if [[ $nftret == 1 ]]; then
+    PS1="$PS1 "${rd}'[`nft list tables |grep sshuttle > /dev/null && echo nft-sht`]'
     PS1="$PS1 "${rd}'[`nft list chain ip redsocks red-output > /dev/null 2>&1 && echo rs-on`]'
 fi
 
