@@ -57,11 +57,11 @@ rs-trg(){
 }
 
 rs-on() {
-    nft add chain ip redsocks red-postrouting { type nat hook postrouting priority 0\; };
-    nft add rule ip redsocks red-postrouting ip protocol tcp counter jump red-local;
+    nft add chain ip redsocks red-output { type nat hook output priority 0\; };
+    nft add rule ip redsocks red-output ip protocol tcp counter jump red-local;
 
-    nft add chain ip redsocks red-prerouting { type nat hook prerouting priority 0\; } ;
-    nft add rule ip redsocks red-prerouting ip protocol tcp counter jump red-local;
+    nft add chain ip redsocks red-postrouting { type nat hook postrouting priority 0\; } ;
+    nft add rule ip redsocks red-postrouting ip protocol tcp counter jump red-local;
 }
 
 rs-off() {
