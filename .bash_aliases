@@ -56,6 +56,26 @@ rs-trg(){
     if [ $? == 0 ]; then rs-off; else rs-on; fi
 }
 
+rs-init() {
+    exip="$1"
+    nft delete table ip redsocks;
+    nft create table ip redsocks && \
+    nft add chain ip redsocks red-local && \
+    nft add rule ip redsocks red-local meta skuid eq 1080 return && \
+    for lip in $(echo $exip | tr , ' '); do nft add rule ip redsocks red-local ip daddr $lip return; done && \
+    nft add rule ip redsocks red-local ip daddr 10.0.0.0/8 return && \
+    nft add rule ip redsocks red-local ip daddr 11.0.0.0/8 return && \
+    nft add rule ip redsocks red-local ip daddr 30.0.0.0/8 return && \
+    nft add rule ip redsocks red-local ip daddr 100.64.0.0/10 return && \
+    nft add rule ip redsocks red-local ip daddr 127.0.0.0/8 return && \
+    nft add rule ip redsocks red-local ip daddr 169.254.0.0/16 return && \
+    nft add rule ip redsocks red-local ip daddr 172.16.0.0/12 return && \
+    nft add rule ip redsocks red-local ip daddr 192.168.0.0/16 return && \
+    nft add rule ip redsocks red-local ip daddr 224.0.0.0/4 return && \
+    nft add rule ip redsocks red-local ip daddr 240.0.0.0/4 return && \
+    nft add rule ip redsocks red-local ip protocol tcp counter redirect to :12345
+}
+
 rs-on() {
     nft add chain ip redsocks red-output { type nat hook output priority 0\; };
     nft add rule ip redsocks red-output ip protocol tcp counter jump red-local;
