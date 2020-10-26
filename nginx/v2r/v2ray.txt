@@ -4,7 +4,7 @@ wget tty5/vmess2json/vmess2json.py
 
 python3 vmess2json.py   --subscribe 'subs' -o 1.json
 
-docker run --user 1080 -d -v /root/v2r/1.json:/etc/v2ray/config.json --name v2ray --network host --restart always tty/v2r
+docker run --user 1080 -d -v /root/v2r/1.json:/etc/v2ray/config.json --name v2r --network host --restart always tty/v2r
 
 docker run  --privileged --name redsocks-nf -e ip=x -d --network host --restart always tty/redsocks:nf
 
