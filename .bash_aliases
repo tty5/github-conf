@@ -37,18 +37,18 @@ socat-tty() {
     socat stdin,raw,echo=0,escape=0x1d "$@"
 }
 
+vim-trim() {
+    sed -i 's/[ ]*$//' "$1" && vim "$1"
+}
+
 function faketty { script -qefc "$(printf "'%s' " "$@")"; }
 
 rs() {
    if [[ "$#" == "0" ]]; then
      rs-trg;
    else
-     rs-on; rs-pon; eval "$@"; rs-off; rs-poff;
+     rs-on; eval "$@"; rs-off;
    fi
-}
-
-vim-trim() {
-    sed -i 's/[ ]*$//' "$1" && vim "$1"
 }
 
 rs-trg(){
@@ -58,7 +58,7 @@ rs-trg(){
 
 rs-init() {
     exip="$1"
-    nft delete table ip redsocks;
+    # nft delete table ip redsocks;
     nft create table ip redsocks && \
     nft add chain ip redsocks red-local && \
     nft add rule ip redsocks red-local meta skuid eq 1080 return && \
@@ -77,6 +77,8 @@ rs-init() {
 }
 
 rs-on() {
+    nft list chain ip redsocks red-local > /dev/null 2>&1 || rs-init
+
     nft add chain ip redsocks red-output { type nat hook output priority 0\; };
     nft add rule ip redsocks red-output ip protocol tcp counter jump red-local;
 
@@ -86,7 +88,6 @@ rs-on() {
 
 rs-off() {
     nft delete chain ip redsocks red-output
-
     nft delete chain ip redsocks red-prerouting
 }
 
