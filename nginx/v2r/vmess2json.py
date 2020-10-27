@@ -661,7 +661,9 @@ def select_multiple(lines):
     print("Found {} items.".format(len(vmesses)))
 
     for i, item in enumerate(vmesses):
-        print("[{}] - {}".format(i+1, item["ps"]))
+        print("[{}] - {}\t".format(i+1, item["ps"]), end = '')
+        if i % 3 == 0:
+            print()
 
     print()
 
