@@ -131,7 +131,8 @@ alias pst='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start
 alias tmfile="grep -A 1 'base64 ' ~/tmux-histroy/rfile  |tail -1 | sed 's/[ \t]*$//' |base64 -d"
 
 alias conf-update='bash -c "cd; cd github-conf; git st; git fetch; git co origin/master"'
-alias curl-g='curl gstatic.com'
+alias c-g='curl gstatic.com'
+alias c-b='curl baidu.com'
 
 alias display-1920='xrandr -s "1920x1017_60.00"'
 alias display-2560='xrandr -s "2560x1346_60.00"'
