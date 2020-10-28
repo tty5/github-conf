@@ -11,6 +11,12 @@ import binascii
 import traceback
 import urllib.request
 import urllib.parse
+import signal
+
+def signal_handler(signal, frame):
+  os._exit(-1)
+
+signal.signal(signal.SIGINT, signal_handler)
 
 vmscheme = "vmess://"
 ssscheme = "ss://"

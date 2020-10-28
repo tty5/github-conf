@@ -58,7 +58,7 @@ rs-trg(){
 
 rs-init() {
     exip="$1"
-    # nft delete table ip redsocks;
+    nft list chain ip redsocks red-local > /dev/null 2>&1 && nft delete table ip redsocks;
     nft create table ip redsocks && \
     nft add chain ip redsocks red-local && \
     nft add rule ip redsocks red-local meta skuid eq 1080 return && \
