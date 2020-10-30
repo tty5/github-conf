@@ -37,6 +37,7 @@ hi TabLineFill ctermfg=gray ctermbg=DarkGreen
 hi TabLine ctermfg=black ctermbg=gray
 hi TabLineSel ctermfg=black ctermbg=green
 
+set paste
 set wrap
 set list
 set listchars=tab:>-,trail:-
