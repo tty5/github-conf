@@ -134,6 +134,8 @@ alias conf-update='bash -c "cd; cd github-conf; git st; git fetch; git co origin
 alias c-g='curl gstatic.com'
 alias c-b='curl baidu.com'
 
+alias e-b='exec bash'
+
 alias display-1920='xrandr -s "1920x1017_60.00"'
 alias display-2560='xrandr -s "2560x1346_60.00"'
 
