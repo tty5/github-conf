@@ -61,7 +61,7 @@ rs-init() {
     nft list chain ip redsocks red-local > /dev/null 2>&1 && nft delete table ip redsocks;
     nft create table ip redsocks && \
     nft add chain ip redsocks red-local && \
-    nft add rule ip redsocks red-local meta skuid eq 1080 return && \
+    nft add rule ip redsocks red-local meta skgid eq 1080 return && \
     for lip in $(echo $exip | tr , ' '); do nft add rule ip redsocks red-local ip daddr $lip return; done && \
     nft add rule ip redsocks red-local ip daddr 10.0.0.0/8 return && \
     nft add rule ip redsocks red-local ip daddr 11.0.0.0/8 return && \
