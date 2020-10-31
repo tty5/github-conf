@@ -10,10 +10,9 @@ external-controller: '0.0.0.0:9002'
 
 proxy-providers:
   p1:
-    type: http
-    url: "url"
+    type: file
     interval: 3600
-    path: ./p1.yaml
+    path: /p1.yaml
     health-check:
         enable: true
         url: http://www.gstatic.com/generate_204
