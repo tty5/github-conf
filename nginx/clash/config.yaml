@@ -1,0 +1,44 @@
+#docker run  --name clash --log-opt max-size=1m --user 0:1080  --network host -v config.yaml:/root/.config/clash/config.yaml -d dreamacro/clash
+
+mixed-port: 7890
+redir-port: 12345
+allow-lan: true
+
+mode: rule
+log-level: info
+
+external-controller: '0.0.0.0:9001'
+
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:53
+  enhanced-mode: redir-host
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114 # default value
+
+proxies:
+- { name: "bancn", type: socks5, server: 192.168.1.5, port: 7895}
+
+proxy-providers:
+  p1:
+    type: http
+    url: "url"
+    interval: 3600
+    path: ./p1.yaml
+
+proxy-groups:
+  - { name: proxy, type: select, use: ["p1"], proxies: ["bancn"], }
+
+rules:
+ - DOMAIN-KEYWORD,bilibili,DIRECT
+ - DOMAIN-SUFFIX,google.com,proxy
+ - DOMAIN-KEYWORD,google,proxy
+ - DOMAIN,google.com,proxy
+ - IP-CIDR,127.0.0.0/8,DIRECT
+ - IP-CIDR,192.168.1.0/24,DIRECT
+ - IP-CIDR,10.0.0.0/8,DIRECT
+ - SRC-IP-CIDR,192.168.1.15/32,bancn
+ - GEOIP,CN,DIRECT
+ - MATCH,proxy
