@@ -1,12 +1,22 @@
 #docker run  --name clash-bancn --log-opt max-size=1m --user 0:1080  --network host -v bancn.yaml:/root/.config/clash/config.yaml -v p1.yaml:/p1.yaml -d dreamacro/clash
 
-mixed-port: 7895
+mixed-port: 7892
+redir-port: 12342
 allow-lan: true
 
 mode: rule
 log-level: info
 
 external-controller: '0.0.0.0:9002'
+
+dns:
+  enable: true
+  ipv6: false
+  listen: 192.168.1.5:53
+  enhanced-mode: redir-host
+  nameserver:
+    - 8.8.8.8
+    - 8.8.4.4
 
 proxy-providers:
   p1:
