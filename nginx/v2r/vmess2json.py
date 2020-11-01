@@ -31,7 +31,7 @@ TPL["CLIENT"] = """
   },
   "inbounds": [
     {
-      "port": 12345,
+      "port": 12341,
       "protocol": "dokodemo-door",
       "settings": {
         "network": "tcp,udp",
@@ -728,8 +728,8 @@ if __name__ == "__main__":
                         help="output the outbound object only.")
     parser.add_argument('--inbounds',
                         action="store",
-                        default="socks:1080",
-                        help="include inbounds objects, default: \"socks:1080,http:8123\". Available proto: socks,http,dns,mt,tproxy . "
+                        default="socks:7891",
+                        help="include inbounds objects, default: \"socks:7891\". Available proto: socks,http,dns,mt,tproxy . "
                             "For mtproto with custom password:  mt:7788:xxxxxxxxxxxxxxx")
     parser.add_argument('--localdns',
                         action="store",
