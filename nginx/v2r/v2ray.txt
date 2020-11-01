@@ -1,6 +1,6 @@
 # env setup
 
-docker run --user 1080 -d -v /tmp/v2r.json:/etc/v2ray/config.json --name v2r --network host --restart always tty/v2r
+docker run --name v2r --log-opt max-size=1m --user :1080 -v /tmp/v2r.json:/etc/v2ray/config.json --network host --restart always -d tty/v2r
 
 docker run  --privileged --name redsocks-nf -e ip=x -d --network host --restart always tty/redsocks:nf
 
