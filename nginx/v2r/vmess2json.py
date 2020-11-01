@@ -28,7 +28,7 @@ TPL["CLIENT"] = """
   "log": {
     "access": "",
     "error": "",
-    "loglevel": "error"
+    "loglevel": "info"
   },
   "inbounds": [
     {
