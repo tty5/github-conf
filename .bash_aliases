@@ -25,6 +25,7 @@ if [[ x"$OS" != x"Windows_NT" ]]; then alias sd='cd /sd'; fi;
 
 alias sshuttle-all='sshuttle -l 0.0.0.0 --method nft --no-latency-control --pidfile /tmp/sshuttle.pid -x 127.0.0.0/8 -x 10.0.0.0/8 -x 11.0.0.0/8 -x 30.0.0.0/8 -x 172.16.0.0/12 -x 192.168.0.0/16 -x 100.64.0.0/10 -x 169.254.0.0/16 -x 224.0.0.0/4 -x 240.0.0.0/4 0/0'
 
+
 grep1() {
     read -e line; echo "$line"; grep "$@"
 }
@@ -94,6 +95,15 @@ rs-off() {
 
 
 export EDITOR=vim
+
+ossutil64-k-cp-s() {
+    echo -- ossutil64-key cp "$@"
+    ossutil64-key cp "$@"
+    sfile="$2"
+    [[ $sfile == */ ]] && sfile="$2"$(basename $1)
+    echo -- ossutil64-key sign --disable-encode-slash "$sfile"
+    ossutil64-key sign --disable-encode-slash "$sfile" |cut -d '?' -f 1
+}
 
 journalctl-u() {
     journalctl _SYSTEMD_INVOCATION_ID=$(systemctl show --value -p InvocationID "$1")
