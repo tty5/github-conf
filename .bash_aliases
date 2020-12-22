@@ -106,7 +106,7 @@ ossutil64-k-cp-s() {
 }
 
 journalctl-u() {
-    journalctl _SYSTEMD_INVOCATION_ID=$(systemctl show --value -p InvocationID "$1")
+    journalctl _SYSTEMD_INVOCATION_ID=$(systemctl show --value -p InvocationID "$1") "${@:2}"
 }
 
 openssl-enc() {
