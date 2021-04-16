@@ -17,6 +17,8 @@ shopt -s histappend
 
 if [[ x"$OS" != x"Windows_NT" ]]; then alias sd='cd /sd'; fi;
 
+if [[ $(tty) == "/dev/ttyS0" ]]; then resize; fi
+
 # source <(crictl completion bash)
 # source <(kubectl completion bash)
 
