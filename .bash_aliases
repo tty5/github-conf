@@ -77,6 +77,7 @@ rs-init() {
     nft add rule ip redsocks red-local ip daddr 224.0.0.0/4 return && \
     nft add rule ip redsocks red-local ip daddr 240.0.0.0/4 return && \
     nft add rule ip redsocks red-local ip saddr 192.168.1.15 ip protocol tcp counter redirect to :12342 && \
+    nft add rule ip redsocks red-local ip saddr 192.168.1.16 ip protocol tcp counter redirect to :12342 && \
     nft add rule ip redsocks red-local ip protocol tcp counter redirect to :12341
 }
 
