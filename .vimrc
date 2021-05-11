@@ -11,7 +11,9 @@ set backspace=indent,eol,start
 hi CursorLine ctermfg=yellow ctermbg=green cterm=bold
 hi CursorColumn ctermfg=yellow ctermbg=green cterm=bold
 
-set belloff=all
+set noerrorbells
+set visualbell
+set t_vb=
 
 set noswapfile
 set nobackup
