@@ -29,6 +29,8 @@ alias sshuttle-all='sshuttle -l 0.0.0.0 --method nft --no-latency-control --pidf
 
 alias ken-make='make CFLAGS_signal.o=-Og'
 
+alias tmnew='tmux new -s one'
+
 grep1() {
     read -e line; echo "$line"; grep "$@"
 }
