@@ -163,7 +163,7 @@ alias gosrc='cd /sd/gopath/src'
 alias go-code='cd /sd/code'
 
 alias vi=vim
-alias kvm-mergeconf='sh scripts/kconfig/merge_config.sh -m .config /sd/github-conf/kvm_guest.conf'
+alias kvm-mergeconf='sh scripts/kconfig/merge_config.sh -m .config /root/github-conf/kvm_guest.conf'
 
 alias numfmti='numfmt --to=iec'
 
