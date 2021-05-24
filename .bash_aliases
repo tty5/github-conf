@@ -139,7 +139,7 @@ alias rm='rm -f'
 alias l=ls
 alias watch='watch -n1'
 alias t='tmux a -t one'
-
+alias rekcod="docker run --rm -i -v /var/run/docker.sock:/var/run/docker.sock nexdrew/rekcod"
 
 alias dd-byte='dd oflag=seek_bytes iflag=skip_bytes,count_bytes status=none'
 alias pse='ps axo user,pid,spid,ppid,pgid,sid,pcpu,pmem,vsz,rss,tname,stat,start,time,args'
