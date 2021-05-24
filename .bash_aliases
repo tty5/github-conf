@@ -43,6 +43,10 @@ socat-tty() {
     socat stdin,raw,echo=0,escape=0x1d "$@"
 }
 
+trimfile() {
+    sed -i 's/[ ]*$//' "$1"
+}
+
 vim-trim() {
     sed -i 's/[ ]*$//' "$1" && vim "$1"
 }
