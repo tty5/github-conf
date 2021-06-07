@@ -6,4 +6,4 @@ ln -sf github-conf/.gdbinit
 ln -sf github-conf/.tmux.conf
 ln -sf github-conf/.tmux.reset.conf
 
-head -3 .bash_aliases |cut -c 2- >> ~/.bashrc
+head -5 .bash_aliases |cut -c 2- >> ~/.bashrc

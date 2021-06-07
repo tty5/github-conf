@@ -1,8 +1,10 @@
+#!/usr/bin/env bash
+
 #if [ -f ~/.bash_aliases ]; then
 #       . ~/.bash_aliases
 #fi
 
-#head -3 .bash_aliases |cut -c 2- >> ~/.bashrc
+#head -5 .bash_aliases |cut -c 2- >> ~/.bashrc
 #sed '1p;/a.out/!d'
 
 #PS1=${PS1/\\n\\$/}
@@ -27,7 +29,7 @@ if [[ $(tty) == "/dev/ttyS0" ]]; then resize; fi
 
 alias sshuttle-all='sshuttle -l 0.0.0.0 --method nft --no-latency-control --pidfile /tmp/sshuttle.pid -x 127.0.0.0/8 -x 10.0.0.0/8 -x 11.0.0.0/8 -x 30.0.0.0/8 -x 172.16.0.0/12 -x 192.168.0.0/16 -x 100.64.0.0/10 -x 169.254.0.0/16 -x 224.0.0.0/4 -x 240.0.0.0/4 0/0'
 
-alias ken-make='make CFLAGS_signal.o=-Og'
+alias ken-make='make CFLAGS_signal.o=-Og CFLAGS_signal.o=-Og CFLAGS_watchdog.o=-O0'
 
 alias tmnew='tmux new -s one'
 
