@@ -17,7 +17,7 @@ HISTSIZE=9000
 export PROMPT_COMMAND="history -a"
 shopt -s histappend
 
-if [[ x"$OS" != x"Windows_NT" ]]; then alias sd='cd /sd'; fi;
+if [[ x"$OS" != x"Windows_NT" ]]; then alias cds='cd /sd'; alias sd='cd /sd'; fi;
 
 if [[ $(tty) == "/dev/ttyS0" ]]; then resize; fi
 
