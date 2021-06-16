@@ -48,7 +48,7 @@ set hidden
 set showcmd
 set ignorecase
 set laststatus=2
-set statusline=%F%m%r,\ %Y,\ [%{&fileformat}],\ [%{getcwd()}],\ row=%l,\ col=%c%V,\ %p%%,\ [%{(&fenc==\"\")?&enc:&fenc}],\ ASCII=\%b,\ HEX=\%B
+set statusline=%F%m%r,\ %Y,\ [%{&fileformat}],\ [%{getcwd()}],\ [%{(&fenc==\"\")?&enc:&fenc}]
 
 noremap <C-t> :Tlist<CR>
 "noremap <C-b> :bprevious<CR>
