@@ -14,6 +14,7 @@
 tty -s && stty -ixon
 
 HISTSIZE=9000
+
 export PROMPT_COMMAND="history -a"
 shopt -s histappend
 
