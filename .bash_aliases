@@ -37,6 +37,29 @@ alias tmnew='tmux new -s one'
 date-from-sec() {
     date --date @"$1"
 }
+nibbles4 () { rev | while read -n4 a; do echo -n "$a ";done | rev ; echo; }
+nibbles3 () { rev | while read -n3 a; do echo -n "$a ";done | rev ; echo; }
+
+bformat(){
+  echo -n "dec  "; bc <<< "obase=10; $(($1))"
+  echo -n "dec4 "; bc <<< "obase=10; $(($1))" | nibbles4
+  echo -n "dec3 "; bc <<< "obase=10; $(($1))" | nibbles3
+
+  echo
+  echo -n "bin  "; bc <<< "obase=2; $(($1))"
+  echo -n "bin4 "; bc <<< "obase=2; $(($1))" | nibbles4
+  echo -n "bin3 "; bc <<< "obase=2; $(($1))" | nibbles3
+
+  echo
+  echo -n "oct  0"; bc <<< "obase=8; $(($1))"
+  echo -n "oct4 0"; bc <<< "obase=8; $(($1))" | nibbles4
+  echo -n "oct3 0"; bc <<< "obase=8; $(($1))" | nibbles3
+
+  echo
+  echo -n "hex  0x"; bc <<< "obase=16; $(($1))"
+  echo -n "hex4 0x"; bc <<< "obase=16; $(($1))" | nibbles4
+  echo -n "hex3 0x"; bc <<< "obase=16; $(($1))" | nibbles3
+}
 
 grep1() {
     read -e line; echo "$line"; grep "$@"
