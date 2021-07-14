@@ -4,7 +4,7 @@
 #       . ~/.bash_aliases
 #fi
 
-#head -5 .bash_aliases |cut -c 2- >> ~/.bashrc
+#head -5 .bash_aliases |tail -3 |cut -c 2- >> ~/.bashrc
 #sed '1p;/a.out/!d'
 
 #PS1=${PS1/\\n\\$/}
