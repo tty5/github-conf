@@ -34,6 +34,8 @@ alias ken-make='make CFLAGS_signal.o=-Og CFLAGS_signal.o=-Og CFLAGS_watchdog.o=-
 
 alias tmnew='tmux new -s one'
 
+alias cl-t='column -t'
+
 date-from-sec() {
     date --date @"$1"
 }
